@@ -20,7 +20,7 @@ My plan is to create a well-designed portfolio website, where all of my projects
 * HTML
 * CSS
 * JavaScript
-* Twitter API
+* Spotify API
 
 ##### Not sure about these but, potentially
 * React.js

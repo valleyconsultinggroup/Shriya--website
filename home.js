@@ -6,20 +6,20 @@ var livePatern = {
   colors: [252, 251, 249, 248, 241, 240],
   triangleColors: [],
   destColors: [],
-  
+
   init: function(){
     this.canvas = document.getElementById('canvas');
     this.context = this.canvas.getContext('2d');
     this.cols = Math.floor(document.body.clientWidth / 24);
     this.rows = Math.floor(document.body.clientHeight / 24) + 1;
-    
+
     this.canvas.width = document.body.clientWidth;
     this.canvas.height = document.body.clientHeight;
-    
+
     this.drawBackground();
     this.animate();
   },
-  
+
   drawTriangle: function(x, y, color, inverted){
     inverted = inverted == undefined ? false : inverted;
 
@@ -31,17 +31,17 @@ var livePatern = {
     this.context.fill();
     this.context.closePath();
   },
-  
-  getColor: function(){    
+
+  getColor: function(){
     return this.colors[(Math.floor(Math.random() * 6))];
   },
-  
+
   drawBackground: function(){
     var eq = null;
     var x = this.cols;
     var destY = 0;
     var color, y;
-    
+
     while(x--){
       eq = x % 2;
       y = this.rows;
@@ -54,7 +54,7 @@ var livePatern = {
       }
     }
   },
-  
+
   animate: function(){
     var me = this;
 
@@ -68,7 +68,7 @@ var livePatern = {
       me.drawTriangle(x * 24 + 2, y * 24, this.getColor());
     }
 
-    setTimeout(function(){    
+    setTimeout(function(){
       me.animate.call(me);
     }, 10);
   },
@@ -129,5 +129,79 @@ window.onload = function() {
   css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
   document.body.appendChild(css);
 };
+class StickyNavigation {
 
+	constructor() {
+		this.currentId = null;
+		this.currentTab = null;
+		this.tabContainerHeight = 70;
+		let self = this;
+		$('.et-hero-tab').click(function() {
+			self.onTabClick(event, $(this));
+		});
+		$(window).scroll(() => { this.onScroll(); });
+		$(window).resize(() => { this.onResize(); });
+	}
+
+	onTabClick(event, element) {
+		event.preventDefault();
+		let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
+		$('html, body').animate({ scrollTop: scrollTop }, 600);
+	}
+
+	onScroll() {
+		this.checkTabContainerPosition();
+    this.findCurrentTabSelector();
+	}
+
+	onResize() {
+		if(this.currentId) {
+			this.setSliderCss();
+		}
+	}
+
+	checkTabContainerPosition() {
+		let offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
+		if($(window).scrollTop() > offset) {
+			$('.et-hero-tabs-container').addClass('et-hero-tabs-container--top');
+		}
+		else {
+			$('.et-hero-tabs-container').removeClass('et-hero-tabs-container--top');
+		}
+	}
+
+	findCurrentTabSelector(element) {
+		let newCurrentId;
+		let newCurrentTab;
+		let self = this;
+		$('.et-hero-tab').each(function() {
+			let id = $(this).attr('href');
+			let offsetTop = $(id).offset().top - self.tabContainerHeight;
+			let offsetBottom = $(id).offset().top + $(id).height() - self.tabContainerHeight;
+			if($(window).scrollTop() > offsetTop && $(window).scrollTop() < offsetBottom) {
+				newCurrentId = id;
+				newCurrentTab = $(this);
+			}
+		});
+		if(this.currentId != newCurrentId || this.currentId === null) {
+			this.currentId = newCurrentId;
+			this.currentTab = newCurrentTab;
+			this.setSliderCss();
+		}
+	}
+
+	setSliderCss() {
+		let width = 0;
+		let left = 0;
+		if(this.currentTab) {
+			width = this.currentTab.css('width');
+			left = this.currentTab.offset().left;
+		}
+		$('.et-hero-tab-slider').css('width', width);
+		$('.et-hero-tab-slider').css('left', left);
+	}
+
+}
+
+new StickyNavigation();
 !function(){livePatern.init();}()

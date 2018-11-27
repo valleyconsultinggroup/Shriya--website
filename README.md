@@ -1,7 +1,7 @@
 # Shriya's Personal Website
 Shriya Nandwani, Fall 2018 VCG Dev. 
 
-Website can be found at shriyanan.github.io
+Website can be found at shriyanan.github.io; Check it out :)
 
 ### Description
 
@@ -21,12 +21,24 @@ My plan is to create a well-designed portfolio website, where all of my projects
 * HTML
 * CSS
 * JavaScript
+* Adobe Illustrator
 
 ### Implementation
 **TODO**: Complete this while you're working on your project. Preferably, you're describing what steps you took for different parts of the project.
 
+1. Make homepage: this step was different than I envisioned it to be. At first, I imagined having a website with a navigation bar that linked to several different html files, but after browsing around other portfolio websites, I found myself liking the single page feel. This step ended up with me having one cohesive page with several sections
+
+2. Creating the 1 page layout. I couldn't figure out how to a webpage that was not bound to a specific length when scrolling, so I ended up grabbing an HTML template from online, just so I could incorporate this on my website. 
+
+3. I wanted to add some cool, special effects, so I browsed around on codepen and found some things I liked! It was interesting to integrate this because I had to create a separate class in my html file for them, and change a lot of the css so that it pointed to the right section I was editing. 
+
+4. Finally, when I was done with the design of the website, I updated all my content and information to the website!
+
+
 ### Supplementary Material
 **TODO**: Include any links to materials that might help people learn more about your project.
+https://codepen.io/xjdesigns/pen/qZWjNw
+https://codepen.io/ConnorGaunt/pen/OReXZB
 
-
-### Additional Links
+### Future
+Add a navigation bar!

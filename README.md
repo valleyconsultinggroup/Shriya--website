@@ -38,6 +38,7 @@ My plan is to create a well-designed portfolio website, where all of my projects
 ### Supplementary Material
 **TODO**: Include any links to materials that might help people learn more about your project.
 https://codepen.io/xjdesigns/pen/qZWjNw
+
 https://codepen.io/ConnorGaunt/pen/OReXZB
 
 ### Future

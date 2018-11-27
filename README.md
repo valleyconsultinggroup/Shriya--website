@@ -1,7 +1,7 @@
 # Shriya's Personal Website
 Shriya Nandwani, Fall 2018 VCG Dev. 
 
-Website can be found at shriyanan.berkeley.edu
+Website can be found at shriyanan.github.io
 
 ### Description
 
@@ -21,12 +21,6 @@ My plan is to create a well-designed portfolio website, where all of my projects
 * HTML
 * CSS
 * JavaScript
-* Spotify API
-
-##### Not sure about these but, potentially
-* React.js
-* Moment.js
-* Particles.js
 
 ### Implementation
 **TODO**: Complete this while you're working on your project. Preferably, you're describing what steps you took for different parts of the project.
